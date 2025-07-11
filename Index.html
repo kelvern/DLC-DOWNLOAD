@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minecraft DLC Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      background: #2196f3; /* Biru polos */
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 50, 0.3);
+    }
+    header h1 { font-size: 18px; }
+    nav { display: flex; align-items: center; }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    select, button.toggle-theme {
+      margin-left: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .hero { text-align: center; padding: 60px 20px; }
+    .hero h2 { font-size: 20px; }
+    .search { text-align: center; margin: 20px; }
+    .search input {
+      padding: 12px 20px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Press Start 2P', cursive;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .dlc-card {
+      background: #ffffffcc;
+      border: 2px solid #007acc;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.2s, background 0.3s;
+    }
+    body.dark .dlc-card { background: #333; }
+    .dlc-card:hover { transform: translateY(-5px); }
+    .dlc-card img { width: 100%; display: block; }
+    .dlc-info { padding: 15px; }
+    .dlc-info h3 { margin: 0 0 10px; font-size: 12px; }
+    .dlc-info p {
+      background: #007acc;
+      display: inline-block;
+      padding: 4px 10px;
+      color: #fff;
+      font-size: 10px;
+      border-radius: 4px;
+      margin: 0 0 10px;
+    }
+    .dlc-card a.download-btn {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #007acc;
+      color: #fff;
+      padding: 12px 0;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      border-top: 1px solid #007acc;
+      transition: background 0.3s;
+    }
+    .dlc-card a.download-btn:hover { background: #005f99; }
+    footer { text-align: center; padding: 30px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="site-title">Minecraft DLC</h1>
+    <nav>
+      <select id="lang">
+        <option value="id">Indonesia</option>
+        <option value="ms">Melayu</option>
+        <option value="en">English</option>
+      </select>
+      <button class="toggle-theme">🌙 / ☀️</button>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2 id="hero-title">Unduh DLC Marketplace Gratis</h2>
+  </section>
+
+  <div class="search">
+    <input type="text" id="search" placeholder="Cari DLC...">
+  </div>
+
+<section id="category" class="grid">
+    <!-- Tambah DLC Cards banyak -->
+    <div class="dlc-card" data-name="
+      Parkour Spiral 2">
+      <img src="https://i.ibb.co/PG3bYS9s/IMG-20250621-WA0005.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Parkour Spiral 2</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/mrnf4adrhuouctw/Parkour+Spiral+2+(world_template).mctemplate/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    <div class="dlc-card" data-name="Realism Fields + Forest">
+      <img src="https://i.ibb.co/WN1wdnQT/IMG-20250621-WA0006.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Realism Fields + Forest</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/67v99sa8gdl3l4h/Realism+fields+++forest(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    <div class="dlc-card" data-name="The Backrooms Party Time 2.0">
+      <img src="https://i.ibb.co/1JhVZYZc/IMG-20250621-WA0009.jpg/400x200">
+      <div class="dlc-info">
+        <h3>The Backrooms Party Time 2.0</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/8cegm693ijtyi9z/The+Backrooms+Party+Time+(world_template).mctemplate/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    <div class="dlc-card" data-name="The Backrooms Pink Dreams">
+      <img src="https://i.ibb.co/4wKGyczV/IMG-20250621-WA0008.jpg/400x200">
+      <div class="dlc-info">
+        <h3>The Backrooms Pink Dreams</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/usjcn4j726ipet0/The_Backrooms_Pink_Dreams_%28world_template%29.mctemplate/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    <div class="dlc-card" data-name="Parkour Paradise 3">
+      <img src="https://i.ibb.co/QFjn2vTY/IMG-20250621-WA0010.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Parkour Paradise 3</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/3pgakw3794dq3nz/Parkour+Paradise+3+(world_template).mctemplate/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Better On Bedrock">
+      <img src="https://i.ibb.co/zhfP2FYJ/IMG-20250621-WA0012.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Better On Bedrock</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/5cjqkne5r1170ps/Better+on+Bedrock+1.1+(world_template).mctemplate/file)" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+  <div class="dlc-card" data-name="Death Animation">
+      <img src="https://i.ibb.co/C5DR0G7C/IMG-20250621-WA0033.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Death Animation</h3>
+        <p>Addon</p>
+      </div>
+    <a href="https://www.mediafire.com/file/563l11bf7r64pv5/Death+Animations+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="RealismCraft 1.6.2">
+      <img src="https://i.ibb.co/5x6ZyMRS/IMG-20250621-WA0039.jpg/400x200">
+      <div class="dlc-info">
+        <h3>RealismCraft 1.6.2</h3>
+        <p>Texture, Template/Maps & Skin Pack</p>
+      </div>
+      <a href="https://www.mediafire.com/file/0wp45t1yo75pkxw/RealismCraft+1.6.2+(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="How To Train Your Dragon">
+      <img src="https://i.ibb.co/s9Lbvk9N/IMG-20250622-WA0000.jpg/400x200">
+      <div class="dlc-info">
+        <h3>How To Train Your Dragon</h3>
+        <p>Addon, Skin Pack & Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/gbktvhbunz4nhwn/How_To_Train_Your_Dragon_%2528extract_this_file%2529.zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Roads+">
+      <img src="https://i.ibb.co/gLnmnVCp/IMG-20250622-WA0001.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Roads+</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/naodnt27pzd7fsp/Roads+++Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Steven Universe">
+      <img src="https://i.ibb.co/ccLLPmxr/IMG-20250622-WA0005.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Steven Universe</h3>
+        <p>Texture, Template/Maps & Skin Pack</p>
+      </div>
+      <a href="https://www.mediafire.com/file/8s36b8a46o1lb8v/Steven+Universe+(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="The Ultimate Survival World">
+      <img src="https://i.ibb.co/wFmwdLRR/IMG-20250624-WA0002.jpg/400x200">
+      <div class="dlc-info">
+        <h3>The Ultimate Survival World</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/9pctgqcp3n0q8rp/The_Ultimate_Survival_World.mcworld/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Excalibur">
+      <img src="https://i.ibb.co/XxQ6PMdY/excalibur-v1-jpg.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Excalibur</h3>
+        <p>Skin Pack & Texture</p>
+      </div>
+      <a href="https://www.mediafire.com/file/o0834n689400yym/Excalibur+(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Weapons 2.0">
+      <img src="https://i.ibb.co/dstPv8zG/IMG-20250628-WA0001.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Weapons 2.0</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/unjfmp1i9rgjyex/Weapons+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Morph Into Mobs!">
+      <img src="https://i.ibb.co/DPgHFwFK/IMG-20250629-WA0000.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Morph Into Mobs!</h3>
+        <p>Template/Maps & Skin Pack</p>
+      </div>
+      <a href="https://www.mediafire.com/file/i69kf97jolttnp5/MORPH+into+MOBS!+(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Furniture 1.4">
+      <img src="https://i.ibb.co/4R27F2Kp/IMG-20250629-WA0001.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Furniture 1.4</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/88q38kywgn6fxg6/Furniture+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Realistic Biomes 1.2">
+      <img src="https://i.ibb.co/M5BxjPzJ/IMG-20250630-WA0010.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Realistic Biomes 1.2</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/meu7rb1qd53cnp1/Realistic+Biomes+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Pop-Ups">
+      <img src="https://i.ibb.co/mryTZGD1/IMG-20250709-WA0031-1.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Pop-Ups</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/rgvmc1efsy7ohio/Pop-Ups+Add-On+(MDF).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Valley Village">
+      <img src="https://i.ibb.co/F4FN1TS1/IMG-20250703-WA0012.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Valley Village</h3>
+        <p>Template/Maps</p>
+      </div>
+      <a href="https://www.mediafire.com/file/0ab0lft81742dfy/Valley+Village+(world_template).mctemplate/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Dragon">
+      <img src="https://i.ibb.co/LdwBXpSH/IMG-20250704-WA0003.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Dragon</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/5zau2blgqd85yy6/DRAGONS+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Actions & Stuff 1.5">
+      <img src="https://i.ibb.co/v6wBgNpC/IMG-20250704-WA0006.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Actions & Stuff 1.5</h3>
+        <p>Texture & Skin Pack</p>
+      </div>
+      <a href="https://www.mediafire.com/file/t0j9tsjpr7emtt6/Actions+&+Stuff+1.5+(extract+this+file).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Superhero Morphs">
+      <img src="https://i.ibb.co/1fwRJ4w2/IMG-20250704-WA0010.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Superhero Morphs</h3>
+        <p>Template/Maps & Skin Pack</p>
+      </div>
+      <a href="https://www.mediafire.com/file/x12qa90w9bjk7y4/Superhero+Morphs+(MDF)+(Extract+Zip).zip/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Fantasy Craft 1.5">
+      <img src="https://i.ibb.co/bp4Sg4J/IMG-20250706-WA0356.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Fantasy Craft 1.5</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/7rrkip1bx50t7pv/§6FantasyCraft+1.5+§rAdd-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Camping">
+      <img src="https://i.ibb.co/nqC7Ncw5/IMG-20250709-WA0056.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Camping</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/3vlys1r1889miu9/Camping+Add-On+Resource+Pack+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="More Custom Blocks 2">
+      <img src="https://i.ibb.co/xqFLqtrz/IMG-20250709-WA0057.jpg/400x200">
+      <div class="dlc-info">
+        <h3>More Custom Blocks 2</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/i7xba2drrfo0oga/More+Custom+Blocks+2+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <div class="dlc-card" data-name="Morph Into Mobs">
+      <img src="https://i.ibb.co/mC1B7Gpd/image-1.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Morph Into Mobs</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/87c1ijjn0lhvwg2/MORPH+into+MOBS+Add-On+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+    </div>
+    </div>
+    <!-- Tambah sebanyak yang kamu mau -->
+  </section>
+
+  <footer>
+    &copy; 2025 • By Kelvern • Marketplace DLC Free
+  </footer>
+
+  <script>
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    document.getElementById('search').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.dlc-card').forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(query) ? 'block' : 'none';
+      });
+    });
+
+    document.getElementById('lang').addEventListener('change', function() {
+      const lang = this.value;
+      const title = document.getElementById('hero-title');
+      const site = document.getElementById('site-title');
+      if(lang === 'id') {
+        title.textContent = 'Unduh DLC Marketplace Gratis';
+        site.textContent = 'Minecraft DLC';
+      }
+      if(lang === 'ms') {
+        title.textContent = 'Muat Turun DLC Marketplace Percuma';
+        site.textContent = 'Minecraft DLC';
+      }
+      if(lang === 'en') {
+        title.textContent = 'Download Free Marketplace DLC';
+        site.textContent = 'Minecraft DLC';
+      }
+    });
+  </script>
+</body>
+        </html>
