@@ -419,6 +419,22 @@
       </div>
       <a href="https://www.mediafire.com/file/memqcyljc3lu328/Naturalist+Add-On+3.1+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
       </div>
+        <div class="dlc-card" data-name="Dinosaurs 2.1">
+      <img src="https://i.ibb.co/wFHtTdKp/image-1-5.jpg/400x200">
+      <div class="dlc-info">
+        <h3>Dinosaurs 2.1</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/58fa98u6st72z3y/Dinosaurs+Add-On+2.1+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+      </div>
+        <div class="dlc-card" data-name="Cave Dwellers (Official)">
+      <img src=https://i.ibb.co/Wp4tgxnr/image-1.jpg"/400x200">
+      <div class="dlc-info">
+        <h3>Cave Dwellers (Official)</h3>
+        <p>Addon</p>
+      </div>
+      <a href="https://www.mediafire.com/file/qyo6fsf4y0u4g28/CAVE+DWELLER+Add-On+(Official)+(addon).mcaddon/file" class="download-btn" target="_blank">Unduh</a>
+      </div>
 
     <!-- Lanjutkan semua DLC Card kamu di sini, copy paste PERSIS -->
 <!-- DLC CARD END -->
@@ -473,4 +489,58 @@
   }
 
   .request-submit-btn {
-    backgrou
+    background: #007acc;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .request-submit-btn:hover {
+    background: #005f99;
+    transform: translateY(-2px);
+  }
+</style>
+
+  
+  <footer>
+    &copy; 2025 • By Kelvern • Marketplace DLC Free
+  </footer>
+
+  <script>
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+
+    document.getElementById('search').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('.dlc-card').forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(query) ? 'flex' : 'none';
+      });
+    });
+
+    document.getElementById('lang').addEventListener('change', function() {
+      const lang = this.value;
+      const title = document.getElementById('hero-title');
+      const site = document.getElementById('site-title');
+      if(lang === 'id') {
+        title.textContent = 'Unduh DLC Marketplace Gratis';
+        site.textContent = 'Minecraft DLC';
+      }
+      if(lang === 'ms') {
+        title.textContent = 'Muat Turun DLC Marketplace Percuma';
+        site.textContent = 'Minecraft DLC';
+      }
+      if(lang === 'en') {
+        title.textContent = 'Download Free Marketplace DLC';
+        site.textContent = 'Minecraft DLC';
+      }
+    });
+  </script>
+</body>
+</html>
